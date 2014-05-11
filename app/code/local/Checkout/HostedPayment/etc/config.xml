@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Checkout_HostedPayment>
+            <version>1.0.0</version>
+        </Checkout_HostedPayment>
+    </modules>
+    
+    <global>
+        
+        <models>
+            <HostedPayment>
+                <class>Checkout_HostedPayment_Model</class>
+            </HostedPayment>
+        </models>
+        
+        <helpers>
+            <HostedPayment>
+                <class>Checkout_HostedPayment_Helper</class>
+            </HostedPayment>
+        </helpers>
+        
+        <payment>
+            <groups>
+                <HostedPayment>HostedPayment</HostedPayment>
+            </groups>
+        </payment>
+        
+        <events>
+            <checkout_type_onepage_save_order_after>
+                <observers>
+                    <Checkout_HostedPayment_observer>
+                        <class>Checkout_HostedPayment_Model_Observer</class>
+                        <method>saveOrderQuoteToSession</method>
+                    </Checkout_HostedPayment_observer>
+                </observers>
+            </checkout_type_onepage_save_order_after>
+        </events>
+        
+    </global>
+    
+    <default>
+        <payment>
+            <HostedPayment>
+                <model>HostedPayment/standard</model>
+                <group>HostedPayment</group>
+                <active>1</active>
+                <title>Checkout.com</title>
+                <allowspecific>0</allowspecific>
+            </HostedPayment>
+        </payment>
+        <HostedPayment>
+            <settings>
+                <activationstatus>0</activationstatus>
+            </settings>
+        </HostedPayment>
+    </default>
+    
+    <frontend>
+        <secure_url>
+            <HostedPayment_processing>/HostedPayment/standard</HostedPayment_processing>
+        </secure_url>
+        <routers>
+            <HostedPayment>
+                <use>standard</use>
+                <args>
+                    <module>Checkout_HostedPayment</module>
+                    <frontName>HostedPayment</frontName>
+                </args>
+            </HostedPayment>
+        </routers>
+    </frontend>
+
+</config>

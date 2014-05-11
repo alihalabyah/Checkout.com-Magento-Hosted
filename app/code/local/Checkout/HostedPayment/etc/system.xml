@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<config>
+    <sections>
+        <payment>
+            <groups>
+                <!-- This node name should match your module name in the config.xml and model. !-->
+                <HostedPayment translate="label" module="HostedPayment">
+                    <label>Checkout.com</label>
+                    <comment>
+                         Hosted Payment Page for Credit Card and Local Payments
+                    </comment>
+                    <sort_order>700</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <active translate="label">
+			  <label>Enabled</label>
+			  <frontend_type>select</frontend_type>
+			  <source_model>adminhtml/system_config_source_yesno</source_model>
+			  <sort_order>1</sort_order>
+			  <show_in_default>1</show_in_default>
+			  <show_in_website>1</show_in_website>
+			  <show_in_store>0</show_in_store>
+			</active>
+			<title translate="label">
+			  <label>Title</label>
+			  <frontend_type>text</frontend_type>
+			  <sort_order>2</sort_order>
+			  <show_in_default>1</show_in_default>
+			  <show_in_website>1</show_in_website>
+			  <show_in_store>0</show_in_store>
+			</title>
+			<user_name translate="label">
+			  <label>Merchant Code</label>
+                          <comment><![CDATA[Data entered into this field is stored encrypted in the db.]]></comment>
+			  <backend_model>adminhtml/system_config_backend_encrypted</backend_model>
+			  <sort_order>3</sort_order>
+			  <show_in_default>1</show_in_default>
+			  <show_in_website>1</show_in_website>
+			  <show_in_store>0</show_in_store>
+			</user_name>
+			<password translate="label">
+			  <label>Merchant Password</label>
+                          <comment><![CDATA[Data entered into this field is stored encrypted in the db.]]></comment>
+			  <frontend_type>obscure</frontend_type>
+			  <backend_model>adminhtml/system_config_backend_encrypted</backend_model>
+			  <sort_order>4</sort_order>
+			  <show_in_default>1</show_in_default>
+			  <show_in_website>1</show_in_website>
+			  <show_in_store>0</show_in_store>
+			</password>
+			<test translate="label">
+			  <label>Test Mode</label>
+			  <frontend_type>select</frontend_type>
+			  <source_model>adminhtml/system_config_source_yesno</source_model>
+			  <sort_order>5</sort_order>
+			  <show_in_default>1</show_in_default>
+			  <show_in_website>1</show_in_website>
+			  <show_in_store>0</show_in_store>
+			</test>
+			<payment_action translate="label">
+			  <label>Trans Type</label>
+			  <frontend_type>select</frontend_type>
+			  <source_model>HostedPayment/source_paymentAction</source_model>
+			  <sort_order>6</sort_order>
+			  <show_in_default>1</show_in_default>
+			  <show_in_website>1</show_in_website>
+			  <show_in_store>0</show_in_store>
+			</payment_action>
+			<order_status translate="label">
+			  <label>New Order Status</label>
+			  <frontend_type>select</frontend_type>
+			  <source_model>adminhtml/system_config_source_order_status</source_model>
+			  <sort_order>7</sort_order>
+			  <show_in_default>1</show_in_default>
+			  <show_in_website>1</show_in_website>
+			  <show_in_store>0</show_in_store>
+			</order_status>
+			<redirecturl translate="label">
+			  <label>Hosted Payment Page URL</label>
+			  <frontend_type>text</frontend_type>
+			  <sort_order>8</sort_order>
+			  <show_in_default>1</show_in_default>
+			  <show_in_website>1</show_in_website>
+			  <show_in_store>0</show_in_store>
+			</redirecturl>
+			<tokenserviceurl translate="label">
+			  <label>Payment token service URL</label>
+			  <frontend_type>text</frontend_type>
+			  <sort_order>9</sort_order>
+			  <show_in_default>1</show_in_default>
+			  <show_in_website>1</show_in_website>
+			  <show_in_store>0</show_in_store>
+			</tokenserviceurl>
+			<verifykey translate="label">
+			  <label>SHA512 hashing algorithm Key</label>
+                          <comment><![CDATA[Data entered into this field is stored encrypted in the db.]]></comment>
+			  <frontend_type>text</frontend_type>
+			  <backend_model>adminhtml/system_config_backend_encrypted</backend_model>
+			  <sort_order>11</sort_order>
+			  <show_in_default>1</show_in_default>
+			  <show_in_website>1</show_in_website>
+			  <show_in_store>0</show_in_store>
+			</verifykey>
+                        <Recurring translate="label">
+			  <label>Enable Recurring</label>
+			  <frontend_type>select</frontend_type>
+			  <source_model>adminhtml/system_config_source_yesno</source_model>
+			  <sort_order>12</sort_order>
+			  <show_in_default>1</show_in_default>
+			  <show_in_website>1</show_in_website>
+			  <show_in_store>0</show_in_store>
+			</Recurring>
+                    </fields>
+                </HostedPayment>
+                
+            </groups>
+        </payment>
+    </sections>
+</config>
